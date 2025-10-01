@@ -24,3 +24,15 @@ def exponent(number1, number2):
     for _ in range(0,number2):
         ans *= number1
     return ans
+
+#Function to perform factorial
+def factorial(number):
+    ans = 1
+    if number < 0:
+        print("Please enter a non-negative number")
+    elif number == 0:
+        print("The factorial of 0 is 1")
+    else:
+        for i in range(1, number + 1):
+            ans = ans * i
+        print("The factorial of ", number, " is", ans)
