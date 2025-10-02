@@ -80,3 +80,34 @@ def square_root(number):
     # We didn’t reach the tolerance, but we still have a usable approximation.
         print(f"Reached max iterations ({max_iter}). Approximation may be rough.")
     print(f"√{x} ≈ {guess}")
+
+#Function to calculate greatest common denominator
+def GCD(number1, number2):
+    try:
+        a = int(number1)
+        b = int(number2)
+    except ValueError:
+        print("Both inputs must be valid integers.")
+        raise SystemExit
+
+    if a < 0 or b < 0:
+        print("GCD is defined for non‑negative integers only.")
+        raise SystemExit
+
+    # Edge cases – if either number is zero, the GCD is the other number.
+    if a == 0:
+        print(f"GCD({a}, {b}) = {b}")
+        raise SystemExit
+    if b == 0:
+        print(f"GCD({a}, {b}) = {a}")
+        raise SystemExit
+
+    # Euclidean algorithm (iterative version).
+    # While b is not zero, replace (a, b) with (b, a % b).
+    # When the loop finishes, a holds the GCD.
+    while b != 0:
+        remainder = a % b
+        a = b
+        b = remainder
+
+    print(f"Greatest common denominator = {a}")
