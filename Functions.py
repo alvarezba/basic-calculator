@@ -29,10 +29,15 @@ def exponent(number1, number2):
 def factorial(number):
     ans = 1
     if number < 0:
+        ans = number
         print("Please enter a non-negative number")
+        return
     elif number == 0:
-        print("The factorial of 0 is 1")
+        for i in range(1, number + 1):
+            ans = ans * i
+        print(f"The factorial of 0 is {ans}")
     else:
         for i in range(1, number + 1):
             ans = ans * i
-        print("The factorial of ", number, " is", ans)
+        print(f"The factorial of {number} is {ans}")
+    return ans

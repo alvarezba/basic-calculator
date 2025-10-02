@@ -1,4 +1,4 @@
-import pytest
+import pytest # pyright: ignore[reportMissingImports]
 import Functions
 
 def test_add():
@@ -24,3 +24,19 @@ def test_mod():
 def test_exponent():
     assert Functions.exponent(2,8) == 256
     assert Functions.exponent(100,3) == 1000000
+
+def test_factorial():
+    try:
+        assert Functions.factorial(-2) < 0, "Should return a negative value message\n"
+    except AssertionError as err:
+        print(err)
+
+    try:
+        assert Functions.factorial(0) == 1, "Result should equal 1\n"
+    except AssertionError as err:
+        print(err)
+        
+    try:
+        assert Functions.factorial(5) == 120, "Result should equal 120"
+    except AssertionError as err:
+        print(err)
